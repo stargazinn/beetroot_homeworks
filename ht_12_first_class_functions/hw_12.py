@@ -8,21 +8,21 @@
 #
 #
 # print(f"Number of local variables declared in {test_func.__name__} is {test_func.__code__.co_nlocals}.")
-#
-# # Task 2
-# def first_fun(var1):
-#     print(f"This is first_fun and variable is equal to {var1}")
-#     def second_fun():
-#         nonlocal var1
-#         var1 = 1
-#         print(f"This is second_fun and variable is equal to {var1}")
-#         return 'tu-tu-ru'
-#     return second_fun()
-#
-#
-# a = first_fun(2030)
-# print(a)
-#
+
+# Task 2
+def first_fun(var1):
+    print(f"This is first_fun and variable is equal to {var1}")
+    def second_fun():
+        nonlocal var1
+        var1 = 1
+        print(f"This is second_fun and variable is equal to {var1}")
+        return 'tu-tu-ru'
+    return second_fun
+
+
+a = first_fun(2030)
+print(a())
+
 # # Task 3
 # def choose_func(nums, func1, func2):
 #     if all([i > 0 for i in nums]):
