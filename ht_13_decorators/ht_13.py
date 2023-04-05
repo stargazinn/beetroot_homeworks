@@ -49,12 +49,11 @@
 #
 # # Task 3
 # from functools import wraps
-# 
+#
 # def arg_rules(type_: type, max_length: int, contains: list):
 #     def arg_rules_inner(func):
 #         @wraps(func)
 #         def wrapper(name):
-#             a, b = False, False
 #             if type(name) != type_:
 #                 print(f"Wrong type {type(name)}, should be: {type_}!")
 #                 return False
@@ -80,4 +79,4 @@
 # assert create_slogan('S@SH05') == 'S@SH05 drinks pepsi in his brand new BMW!'
 #
 # assert create_slogan(123) is False
-
+#
