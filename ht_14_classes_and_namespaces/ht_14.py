@@ -53,6 +53,7 @@ class TVController:
         self.current_channel = self.list_of_channels[n-1]
         return self.current_channel
 
+
     def next_channel(self):
         n = self.list_of_channels.index(self.current_channel) + 1
         if n == len(self.list_of_channels):
@@ -61,6 +62,8 @@ class TVController:
         else:
             self.current_channel = self.list_of_channels[n]
             return self.current_channel
+
+
     def previous_channel(self):
         n = self.list_of_channels.index(self.current_channel)
         if n == 0:
@@ -69,8 +72,12 @@ class TVController:
         else:
             self.current_channel = self.list_of_channels[n - 1]
             return self.current_channel
-    def current_channel(self):
+
+
+    def show_current_channel(self):
         return self.current_channel
+
+
     def is_exist(self, n_or_name):
         if type(n_or_name) == int:
             if n_or_name <= len(self.list_of_channels) and n_or_name >= 1:
@@ -85,9 +92,12 @@ class TVController:
 
 
 controller = TVController(CHANNELS)
-# print(controller.turn_channel(3))
+print(controller.turn_channel(3))
+controller.show_current_channel()
+
 # print(controller.next_channel())
-# print(controller.previous_channel())
+controller.previous_channel()
+print(controller.show_current_channel())
 # print(controller.is_exist(4))
 # print(controller.is_exist('BBC'))
 
