@@ -91,11 +91,14 @@
 #
 #
 #     def set_discount(self, identifier, percent, identifier_type='name'):
-#         for name, info in self.products.items():
-#             if identifier_type == 'name' and name == identifier:
-#                 self.products[identifier]['price'] *= percent/100
-#             elif identifier_type == 'type' and info['type'] == identifier:
-#                 self.products[name]['price'] *= percent/100
+#         if percent in range(100):
+#             for name, info in self.products.items():
+#                 if identifier_type == 'name' and name == identifier:
+#                     self.products[identifier]['price'] *= percent/100
+#                 elif identifier_type == 'type' and info['type'] == identifier:
+#                     self.products[name]['price'] *= percent/100
+#         else:
+#             raise ValueError("Discount should be from 0 to 100")#
 #
 #
 #     def sell_product(self, product_name, amount):
