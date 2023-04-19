@@ -70,7 +70,7 @@
 #
 # assert m.filter_leaps([2001, 1884, 1995, 2003, 2020]) == [1884, 2020]
 #
-# Task 3
+# # Task 3
 # class Product:
 #
 #     def __init__(self, product_type, name, price):
@@ -85,7 +85,10 @@
 #
 #
 #     def add(self, product, amount):
-#         self.products[product.name] = {'type' : product.product_type,
+#         if product.name in self.products.keys():
+#             self.products[product.name]['amount'] += amount
+#         else:
+#             self.products[product.name] = {'type' : product.product_type,
 #                                        'price' : product.price * 1.3,
 #                                        'amount' : amount}
 #
@@ -94,9 +97,9 @@
 #         if percent in range(100):
 #             for name, info in self.products.items():
 #                 if identifier_type == 'name' and name == identifier:
-#                     self.products[identifier]['price'] *= percent/100
+#                     self.products[identifier]['price'] *= (100-percent)/100
 #                 elif identifier_type == 'type' and info['type'] == identifier:
-#                     self.products[name]['price'] *= percent/100
+#                     self.products[name]['price'] *= (100-percent)/100
 #         else:
 #             raise ValueError("Discount should be from 0 to 100")
 #
@@ -129,7 +132,10 @@
 #
 # s.sell_product('Ramen', 10)
 #
-# assert s.get_product_info('Ramen') == ('Ramen', 290)
+# s.add(p2, 100)
+#
+#
+# assert s.get_product_info('Ramen') == ('Ramen', 390)
 #
 # # Task 4
 #
