@@ -131,23 +131,19 @@
 #         self.a = a
 #         self.b = b
 #
-#
 #     def __add__(self, other):
 #         if isinstance(other, Fraction):
 #             nsk = lcm(self.b, other.b)
 #             return Fraction(int(self.a * nsk/self.b+other.a * nsk/other.b), int(nsk))
-#
 #
 #     def __sub__(self, other):
 #         if isinstance(other, Fraction):
 #             nsk = lcm(self.b, other.b)
 #             return Fraction(int(self.a * nsk/self.b-other.a * nsk/other.b),nsk)
 #
-#
 #     def __mul__(self, other):
 #         if isinstance(other, Fraction):
 #             return Fraction(self.a * other.a, self.b * other.b)
-#
 #
 #     def __truediv__(self, other):
 #         if other.a == 0:
@@ -155,18 +151,28 @@
 #         if isinstance(other, Fraction):
 #             return Fraction(self.a * other.b,self.b * other.a)
 #
-#
 #     def __str__(self):
 #         if self.a % 1 == 0:
 #             self.a = int(self.a)
 #         return f'{str(self.a)}/{self.b}'
 #
+#     def __eq__(self, other):
+#         return self.a == other.a and self.b == other.b
+#
+#     def __lt__(self, other):
+#         return self.a * other.b < other.a * self.b
+#
+#     def __gt__(self, other):
+#         return self.a * other.b > other.a * self.b
 #
 #
 #
 #
-# a = Fraction(1, 2)
-# b = Fraction(1, 4)
-#
-# print(a + b)
-# print(Fraction(3, 4))
+# if __name__ == '__main__':
+#     a = Fraction(1, 2)
+#     b = Fraction(1, 4)
+# 
+#     print(a + b)
+#     print(Fraction(3, 4))
+#     print(a+b == Fraction(3, 4))
+#     print(a<b)
